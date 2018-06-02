@@ -1,0 +1,3 @@
+rootProject.name = 'setap1'
+
+include ':app'
