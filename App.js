@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+import RNFetchBlob from 'react-native-fetch-blob'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -21,6 +22,27 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  componentDidMount() {
+    RNFetchBlob.fetch('GET', 'https://ancient-journey-47007.herokuapp.com/api/mongoDB', {
+      Authorization: 'Bearer access-token...',
+      // more headers  ..
+    })
+      // when response status code is 200
+      .then((res) => {
+        // the conversion is done in native code
+        // let base64Str = res.base64()
+        // the following conversions are done in js, it's SYNC
+        let text = res.text()
+        let json = res.json()
+        console.log(res);
+        alert(res.data);
+      })
+      // Status code is not 200
+      .catch((errorMessage, statusCode) => {
+        // error handling
+        console.log(errorMessage);
+      })
+  }
   render() {
     return (
       <View style={styles.container}>
