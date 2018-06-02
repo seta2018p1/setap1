@@ -22,7 +22,14 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  constructor(props) {
+    super(props);
+    this.state = ({
+      data: null,
+    });
+  }
   componentDidMount() {
+  
     RNFetchBlob.fetch('GET', 'https://ancient-journey-47007.herokuapp.com/api/mongoDB', {
       Authorization: 'Bearer access-token...',
       // more headers  ..
@@ -34,6 +41,7 @@ export default class App extends Component<Props> {
         // the following conversions are done in js, it's SYNC
         let text = res.text()
         let json = res.json()
+        this.setState({ data: res.data});
         console.log(res);
         alert(res.data);
       })
@@ -47,7 +55,7 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          {this.state.data}
         </Text>
         <Text style={styles.instructions}>
           To get started, edit App.js
