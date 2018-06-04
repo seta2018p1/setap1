@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { observer, inject } from 'mobx-react';
+import { GoogleSigninButton, GoogleSignin } from 'react-native-google-signin';
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' +
@@ -20,17 +21,30 @@ const instructions = Platform.select({
 @inject('rootStore')
 @observer
 export default class Login extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
+        this.authStore = this.props.rootStore.authStore;
     }
+    componentWillMount() {
+        GoogleSignin.hasPlayServices({ autoResolve: true });
+        GoogleSignin.configure({
+            webClientId: '73854623904-ghdqbpnh718rvma61u73tfoue2jtufa8.apps.googleusercontent.com'
+        });
+    }
+    
 
     render() {
         return (
             <View>
-                
+
                 <Text> {this.props.rootStore.authStore.phoneNumber} </Text>
                 <Button onPress={() => { Actions.Qpage() }}
-                title='abc'/> 
+                    title='abc' />
+                <GoogleSigninButton
+                    style={{ width: 48, height: 48 }}
+                    size={GoogleSigninButton.Size.Icon}
+                    color={GoogleSigninButton.Color.Dark}
+                    onPress={() => this.authStore.onLoginOrRegister() } />
             </View>
 
         );
