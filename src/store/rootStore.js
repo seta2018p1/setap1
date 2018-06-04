@@ -1,4 +1,3 @@
-import { observable } from 'mobx'
 import AuthStore from './AuthStore';
 
 let index = 0
