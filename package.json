@@ -23,7 +23,7 @@
     "mobx": "^4.3.0",
     "mobx-react": "^5.1.2"
   },
-  "peerDependencies": {
+  "resolutions": {
     "mobx": "^4.3.0",
     "mobx-react": "^5.1.2"
   },
