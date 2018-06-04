@@ -38,13 +38,14 @@ export default class Login extends Component {
             <View>
 
                 <Text> {this.props.rootStore.authStore.phoneNumber} </Text>
-                <Button onPress={() => { Actions.Qpage() }}
+                <Button onPress={() => {  }}
                     title='abc' />
                 <GoogleSigninButton
                     style={{ width: 48, height: 48 }}
                     size={GoogleSigninButton.Size.Icon}
                     color={GoogleSigninButton.Color.Dark}
-                    onPress={() => this.authStore.onLoginOrRegister() } />
+                    onPress={() => this.authStore.onLoginOrRegister() } 
+                />
             </View>
 
         );

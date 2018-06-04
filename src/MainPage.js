@@ -25,6 +25,7 @@ import RNFetchBlob from 'react-native-fetch-blob';
 import Qpage from './screens/Qpage';
 import Login from './screens/Login';
 import RootStore from './store/rootStore';
+import SignUp from './screens/SignUp';
 
 
 
@@ -52,7 +53,12 @@ export default class MainPage extends Component {
                        
                         component={Qpage}
                     />
-                
+
+                    <Scene
+                        key='SignUp'
+                       
+                        component={SignUp}
+                    />
 
                 </Stack>
 
