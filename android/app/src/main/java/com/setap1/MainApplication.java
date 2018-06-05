@@ -3,6 +3,7 @@ package com.setap1;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.azendoo.reactnativesnackbar.SnackbarPackage;
 import io.invertase.firebase.RNFirebasePackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VectorIconsPackage(),
             new RNGoogleSigninPackage(),
             new SnackbarPackage(),
             new RNFirebasePackage(),
