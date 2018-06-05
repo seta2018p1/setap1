@@ -10,7 +10,7 @@ import {
 import { Actions } from 'react-native-router-flux';
 import { observer, inject } from 'mobx-react';
 import { GoogleSigninButton, GoogleSignin } from 'react-native-google-signin';
-
+import Snackbar from 'react-native-snackbar';
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' +
         'Cmd+D or shake for dev menu',
@@ -38,7 +38,10 @@ export default class Login extends Component {
             <View>
 
                 <Text> {this.props.rootStore.authStore.phoneNumber} </Text>
-                <Button onPress={() => {  }}
+                <Button onPress={() => { Snackbar.show({
+            title: 'Hello world',
+            duration: Snackbar.LENGTH_LONG,
+        }); }}
                     title='abc' />
                 <GoogleSigninButton
                     style={{ width: 48, height: 48 }}

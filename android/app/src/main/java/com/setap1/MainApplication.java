@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
+import com.azendoo.reactnativesnackbar.SnackbarPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.facebook.react.ReactNativeHost;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new RNGoogleSigninPackage(),
+            new SnackbarPackage(),
             new RNFirebasePackage(),
             new RNFetchBlobPackage(),
             new RNFirebaseAuthPackage()

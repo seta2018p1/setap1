@@ -28,16 +28,13 @@ export default class AuthStore {
             .then((user) => {
                 console.log(user);
                 this.user = user;
+            
                 if (user.additionalUserInfo.isNewUser) {
                     Actions.SignUp();
                 } else {
                     Actions.Qpage();
                 }
-                // if (user.emailVerified) {
-                //     Actions.Qpage();
-                // } else {
-                    
-                // }
+            
                 // If you need to do anything with the user, do it here
                 // The user will be logged in automatically by the
                 // `onAuthStateChanged` listener we set up in App.js earlier
